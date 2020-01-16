@@ -35,11 +35,22 @@ def searchImages(pathInput, x, y, slow, pathOutput):
     # todos los archivos donde se encuentren las imagenes.
 
     for file in os.listdir(pathInput):
+        # Busca cada archivo en la carpeta pasada por parametro
+        
+        # Si tienes Slow, la espera se realiza aqui, antes de hacer nada.
         if slow > 0:
             time.sleep(slow)
+
+        # Si el archivo es un directorio, llamo a esta funcion, de forma recursiva,
+        # para que pueda realizar exactamente la misma operacion.        
         if os.path.isdir(pathInput + "/" + str(file)):
             searchImages(pathInput + "/" + str(file), x, y, slow, pathOutput)
+
+        # Si el archivo no es un directorio, vamos a comparar el tamaño (AnchoxAlto)
+        # del archivo con el input que nos pasan por parametro.    
         elif os.path.isfile(pathInput + "/" + str(file)):
+
+            # Si la comparacion es correcta, lo copiamos al output, sino, no hacemos nada
             if compareSize(getSize(pathInput + "/" + str(file)), x, y):
                 print('[->]' + str(file))
                 os.popen('cp ' + pathInput + '/' + str(file) + " " + pathOutput + '/' + str(file)) 
