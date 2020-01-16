@@ -8,7 +8,7 @@ Este programa recorre recursivamente una serie de carpetas donde busca archivos 
 
 ----
 
-### ARGUMENTOS DEL SCRIPTS
+### ARGUMENTOS DEL SCRIPT
 
 `main.py [-h] -i path -o path -x 1234 -y 1234 -t 0`
 
